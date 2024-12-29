@@ -1,0 +1,288 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-light: #f5f5f5;
+    --background-dark: #2c3e50;
+    --text-light: #333;
+    --text-dark: #ecf0f1;
+    --card-background-light: #ffffff;
+    --card-background-dark: #34495e;
+    --border-color: #e0e0e0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+    line-height: 1.6;
+  }
+  
+  .App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .app-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .app-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  
+  .theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .theme-toggle:hover {
+    transform: scale(1.1);
+  }
+  
+  .main-content {
+    padding: 2rem;
+    flex-grow: 1;
+  }
+  
+  .dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .dashboard-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  
+  .nav-button.active {
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    background-color: var(--card-background-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  
+  .data-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .data-table-filter {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  th.sort-asc::after {
+    content: ' ▲';
+  }
+  
+  th.sort-desc::after {
+    content: ' ▼';
+  }
+  
+  tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .utm-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+  
+  .utm-form input, .utm-form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+  }
+  
+  .utm-form button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+  }
+  
+  .utm-form button:hover {
+    background-color: #27ae60;
+  }
+  
+  .generated-url {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    word-break: break-all;
+  }
+  
+  /* Dark theme styles */
+  .App.dark {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+  
+  .App.dark .card {
+    background-color: var(--card-background-dark);
+    color: var(--text-dark);
+  }
+  
+  .App.dark .card-title {
+    color: var(--secondary-color);
+  }
+  
+  .App.dark th {
+    background-color: #2980b9;
+  }
+  
+  .App.dark .generated-url {
+    background-color: #2c3e50;
+    color: var(--text-dark);
+  }
+  
+  .App.dark .data-table-filter {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+    border-color: #4a6278;
+  }
+  
+  /* Добавьте новый класс для стилизации текста на диаграмме */
+  .pie-chart-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    font-size: 12px;
+    fill: #333;
+  }
+  
+  .App.dark .pie-chart-label {
+    fill: #ecf0f1;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .app-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .theme-toggle {
+      margin-top: 1rem;
+    }
+  }
+  
+  /* Add these styles to your existing App.css */
+  .recharts-legend-item {
+    margin-bottom: 10px !important;
+  }
+  
+  .recharts-legend-item-text {
+    color: #666 !important;
+    font-size: 14px !important;
+  }
+  
+  .recharts-pie {
+    outline: none;
+  }
+  
+  .recharts-sector {
+    outline: none;
+  }
+  
+  .recharts-legend-wrapper {
+    padding-right: 20px !important;
+  }
+  
+  
